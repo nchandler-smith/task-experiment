@@ -6,8 +6,12 @@ namespace task
 {
     internal class Worker
     {
+        private bool _continue;
+
         public Worker()
-        {}
+        {
+            _continue = true;
+        }
 
         private void writeDateTime()
         {
@@ -15,12 +19,19 @@ namespace task
             Console.WriteLine($"Checkout the time yo! {dateTime}");
         }
 
-        internal async Task start()
+        public async Task start()
         {
-            while(true){
+            while (_continue)
+            {
                 writeDateTime();
                 await Task.Delay(1000);
             }
+        }
+
+        public void stop()
+        {
+            System.Console.WriteLine("Stopping yo!");
+            _continue = false;
         }
     }
 }

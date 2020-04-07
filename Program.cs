@@ -9,7 +9,9 @@ namespace task
         static async Task Main(string[] args)
         {
             Worker worker = new Worker();
-            await worker.start();
+            await Task.Run(() => worker.start().ConfigureAwait(false));
+            await Task.Delay(5000);
+            worker.stop();
         }
     }
 }
