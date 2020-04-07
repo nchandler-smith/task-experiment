@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace task
 {
@@ -13,10 +15,11 @@ namespace task
             Console.WriteLine($"Checkout the time yo! {dateTime}");
         }
 
-        internal void start()
+        internal async Task start()
         {
             while(true){
                 writeDateTime();
+                await Task.Delay(1000);
             }
         }
     }

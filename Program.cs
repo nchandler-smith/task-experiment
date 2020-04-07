@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace task
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Worker worker = new Worker();
-            worker.start();
+            await worker.start();
         }
     }
 }
